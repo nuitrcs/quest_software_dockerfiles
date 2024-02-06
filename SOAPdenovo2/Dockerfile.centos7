@@ -1,0 +1,16 @@
+FROM centos:centos7
+
+RUN yum install -y epel-release
+RUN yum -y install \
+                   vim \
+                   gcc \
+                   gcc-c++ \
+                   gcc-gfortran \
+                   tar \
+                   make \
+                   autoconf \
+                   automake
+
+COPY ./SOAPdenovo2-bin-LINUX-generic-r240.tgz /SOAPdenovo2-bin-LINUX-generic-r240.tgz
+RUN tar zxvf SOAPdenovo2-bin-LINUX-generic-r240.tgz
+RUN rm /SOAPdenovo2-bin-LINUX-generic-r240.tgz
