@@ -11,5 +11,5 @@ cp Dockerfile llama-cpp-python/docker/cuda_simple/Dockerfile
 ## build the container
 ```
 cd llama-cpp-python 
-docker build -f docker/cuda_simple/Dockerfile -t llama:<llama-cpp-version> .
+docker build -f docker/cuda_simple/Dockerfile -t llama:<llama-cpp-version> . --platform=linux/amd64
 ```
