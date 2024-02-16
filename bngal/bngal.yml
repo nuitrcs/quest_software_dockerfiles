@@ -1,0 +1,44 @@
+name: base
+channels:
+  - conda-forge
+  - bioconda
+  - r
+  - defaults
+dependencies:
+  - r-rcppeigen
+  - r-later
+  - r-visnetwork
+  - r-evaluate
+  - zlib
+  - cmake
+  - r-hmisc
+  - r-diffobj
+  - nlopt
+  - r-plotly
+  - r-brio
+  - r-scales
+  - r-ggrepel
+  - r-curl
+  - r-testthat
+  - r-ggpubr
+  - r-desc
+  - r-optparse
+  - pandoc
+  - r-waldo
+  - r-gridextra
+  - r-ggdendro
+  - r-pkgload
+  - r-praise
+  - r=4.2
+  - r-vegan
+  - r-viridis
+  - r-ape
+  - r-sparsem
+  - r-rcpp
+  - r-pacman
+  - r-fs
+  - r-purrr
+  - r-tidyverse=1.3.2
+  - r-rcolorbrewer
+  - r-igraph
+  - r-rprojroot

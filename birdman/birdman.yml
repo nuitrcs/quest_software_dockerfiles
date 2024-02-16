@@ -1,0 +1,13 @@
+name: base
+channels:
+  - conda-forge
+  - bioconda
+  - r
+  - defaults
+dependencies:
+  - biom-format
+  - patsy
+  - xarray
+  - arviz
+  - cmdstanpy
+  - pip

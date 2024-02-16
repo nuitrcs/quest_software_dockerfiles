@@ -1,0 +1,29 @@
+name: base
+channels:
+  - conda-forge
+  - bioconda
+  - r
+  - defaults
+dependencies:
+  - boto3
+  - botocore
+  - imagecodecs
+  - imageio
+  - joblib
+  - matplotlib
+  - mock
+  - mysqlclient
+  - numpy
+  - pandas
+  - Pillow
+  - progressbar
+  - python-bioformats
+  - python-javabridge
+  - pytz
+  - requests
+  - scikit-learn
+  - scipy
+  - seaborn
+  - wxPython
+  - pip:
+      - verlib
