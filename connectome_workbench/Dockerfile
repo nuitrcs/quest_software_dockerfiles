@@ -35,7 +35,7 @@ RUN tar --no-same-owner -xzvf fs.tar.gz && \
 
 # setup fs env
 ENV OS Linux
-ENV PATH /usr/local/freesurfer/bin:/usr/local/freesurfer/fsfast/bin:/usr/local/freesurfer/tktools:/usr/local/freesurfer/mni/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH /opt/workbench/bin/:/usr/local/freesurfer/bin:/usr/local/freesurfer/fsfast/bin:/usr/local/freesurfer/tktools:/usr/local/freesurfer/mni/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV FREESURFER_HOME /usr/local/freesurfer
 ENV FREESURFER /usr/local/freesurfer
 ENV SUBJECTS_DIR /usr/local/freesurfer/subjects
