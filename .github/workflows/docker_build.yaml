@@ -26,9 +26,20 @@ jobs:
           driver: cloud
           endpoint: "nuitrcs/bob-the-builder"
 
-      - name: Build and push cellprofiler
-        uses: docker/build-push-action@v5
+      - name: Evaluate which Dockerfiles have changed
+        uses: dorny/paths-filter@v2
+        id: filter
         with:
+          filters: |
+            cellprofiler:
+              - 'cellprofiler/Dockerfile'
+            projectchrono:
+              - 'projectchrono/Dockerfile'
+
+      - name: Build and push cellprofiler
+        if: steps.changes.outputs.cellprofiler == 'true'
+        run:
+          uses: docker/build-push-action@v5
           context: "{{defaultContext}}:cellprofiler"
           tags: nuitrcs/cellprofiler:latest
           # For pull requests, export results to the build cache.
@@ -36,8 +47,9 @@ jobs:
           outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
 
       - name: Build and push project chrono
-        uses: docker/build-push-action@v5
-        with:
+        if: steps.changes.outputs.projectchrono == 'true'
+        run:
+          uses: docker/build-push-action@v5
           context: "{{defaultContext}}:projectchrono"
           tags: nuitrcs/projectchrono:latest
           # For pull requests, export results to the build cache.
