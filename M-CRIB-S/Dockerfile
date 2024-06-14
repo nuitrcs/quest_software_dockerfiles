@@ -1,5 +1,6 @@
 FROM centos:centos7
 
+# Comment to trigger action
 # Install vim, emacs, nano, tcl, and lua
 RUN yum install -y epel-release
 RUN yum -y install vim \
