@@ -1,15 +1,12 @@
 name: ci
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - "main"  
 
 jobs:
   docker:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
