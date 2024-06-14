@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-# Comment to trigger action
+# Making an edit to test short hash as tag
 # Install vim, emacs, nano, tcl, and lua
 RUN yum install -y epel-release
 RUN yum -y install vim \
