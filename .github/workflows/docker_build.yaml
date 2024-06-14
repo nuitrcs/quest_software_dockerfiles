@@ -60,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: "{{defaultContext}}:M-CRIB-S"
-          tags: nuitrcs/M-CRIB-S:latest
+          tags: nuitrcs/m-crib-s:latest
           # For pull requests, export results to the build cache.
           # Otherwise, push to a registry.
           outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
