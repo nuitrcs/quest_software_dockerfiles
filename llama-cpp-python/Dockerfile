@@ -1,6 +1,7 @@
 ARG CUDA_IMAGE="11.7.1-devel-ubuntu22.04"
 FROM nvidia/cuda:${CUDA_IMAGE}
 
+# Adding comment to change Dockerfile
 # We need to set the host to 0.0.0.0 to allow outside access
 ENV HOST 0.0.0.0
 
