@@ -69,3 +69,4 @@ RUN cmake ../ -G "Ninja" \
 -DCMAKE_VERBOSE_MAKEFILE=TRUE \
 -DCMAKE_INSTALL_PREFIX=/opt/chrono
 RUN ninja -j 4
+RUN cmake --install .
