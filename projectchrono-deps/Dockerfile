@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.7.1-devel-ubuntu20.04
+FROM nvidia/cuda:11.7.1-devel-ubuntu22.04
 
 # Making a change to trigger the build and push
 RUN apt-get update \ 
