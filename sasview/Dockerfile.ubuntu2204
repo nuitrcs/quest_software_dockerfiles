@@ -1,6 +1,5 @@
 FROM ubuntu:22.04
 
-# Making an edit to trigger the action
 ENV NVIDIA_VISIBLE_DEVICES="all"
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,utility,display"
 
