@@ -23,11 +23,11 @@ RUN git clone --depth=1 --branch=v0.9.1 https://github.com/bumps/bumps.git ../bu
 
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install wheel setuptools
+RUN python3 -m pip install matplotlib==2.2.5
 RUN python3 -m pip install numpy scipy==1.7.3 docutils "pytest<6" sphinx unittest-xml-reporting
 RUN python3 -m pip install tinycc h5py sphinx pyparsing html5lib reportlab==3.6.6 pybind11 appdirs
 RUN python3 -m pip install six numba mako ipython qtconsole==5.3.0 xhtml2pdf unittest-xml-reporting pylint
 RUN python3 -m pip install qt5reactor periodictable uncertainties debugpy "ipykernel<6"
-RUN python3 -m pip install matplotlib==2.2.5
 RUN python3 -m pip install lxml
 
 WORKDIR /sasmodels
