@@ -1,8 +1,8 @@
-FROM nvidia/cuda:11.7.1-devel-ubuntu20.04
+FROM nvidia/cuda:11.8.0-devel-ubuntu22.04
 
 # Making a change to show how the new tag works
 RUN apt-get update \ 
-    && DEBIAN_FRONTEND=noninteractive apt-get -y install wget git python cmake ninja-build build-essential libboost-dev swig libeigen3-dev libglfw3-dev libglm-dev libglew-dev freeglut3-dev libirrlicht-dev libxxf86vm-dev python3 python3-dev libhdf5-dev libnvidia-gl-510 make file libnuma-dev gdb intel-mkl
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install wget git cmake python-is-python3 ninja-build build-essential libboost-dev swig libeigen3-dev libglfw3-dev libglm-dev libglew-dev freeglut3-dev libirrlicht-dev libxxf86vm-dev python3 python3-dev libhdf5-dev libnvidia-gl-510 make file libnuma-dev gdb intel-mkl
 
 # Install OpenMPI the way that it is installed on Quest
 # Start with UCX
