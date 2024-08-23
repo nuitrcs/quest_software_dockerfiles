@@ -1,7 +1,8 @@
 FROM ubuntu:20.04
 
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt install -y git build-essential pkg-config libopenblas-dev liblapacke-dev libgsl-dev
+RUN DEBIAN_FRONTEND=noninteractive apt install -y git build-essential pkg-config libopenblas-dev liblapacke-dev libgsl-dev \
+python-is-python3 python3
 
 WORKDIR /opt
 RUN git clone https://github.com/DReichLab/EIG.git
