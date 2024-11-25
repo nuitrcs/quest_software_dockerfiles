@@ -8,3 +8,5 @@ RUN git clone https://github.com/sequencing/gvcftools.git
 
 WORKDIR /opt/gvcftools
 RUN make
+
+#Editing to trigger ci
