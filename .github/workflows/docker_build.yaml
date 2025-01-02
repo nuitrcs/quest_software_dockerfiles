@@ -50,6 +50,12 @@ jobs:
               - 'sasview/Dockerfile.ubuntu2204'
             simpson:
               - 'SIMPSON/Dockerfile'
+            dahsi:
+              - 'DAHSI/Dockerfile'
+            eig:
+              - 'eig/Dockerfile'
+            gvcftools:
+              - 'gvcftools/Dockerfile'
 
       - name: Build and push cellprofiler
         if: steps.changes.outputs.cellprofiler == 'true'
@@ -108,6 +114,39 @@ jobs:
         with:
           context: "{{defaultContext}}:SIMPSON"
           tags: nuitrcs/simpson:${{ steps.vars.outputs.sha_short }}
+          file: Dockerfile
+          # For pull requests, export results to the build cache.
+          # Otherwise, push to a registry.
+          outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
+
+      - name: Build and push DAHSI
+        if: steps.changes.outputs.dahsi == 'true'
+        uses: docker/build-push-action@v5
+        with:
+          context: "{{defaultContext}}:DAHSI"
+          tags: nuitrcs/dahsi:${{ steps.vars.outputs.sha_short }}
+          file: Dockerfile
+          # For pull requests, export results to the build cache.
+          # Otherwise, push to a registry.
+          outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
+
+      - name: Build and push EIG
+        if: steps.changes.outputs.eig == 'true'
+        uses: docker/build-push-action@v5
+        with:
+          context: "{{defaultContext}}:eig"
+          tags: nuitrcs/eig:${{ steps.vars.outputs.sha_short }}
+          file: Dockerfile
+          # For pull requests, export results to the build cache.
+          # Otherwise, push to a registry.
+          outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
+
+      - name: Build and push gvcftools
+        if: steps.changes.outputs.gvcftools == 'true'
+        uses: docker/build-push-action@v5
+        with:
+          context: "{{defaultContext}}:gvcftools"
+          tags: nuitrcs/gvcftools:${{ steps.vars.outputs.sha_short }}
           file: Dockerfile
           # For pull requests, export results to the build cache.
           # Otherwise, push to a registry.
