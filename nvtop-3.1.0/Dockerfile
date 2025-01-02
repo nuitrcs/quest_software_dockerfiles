@@ -1,6 +1,7 @@
 ### JAG: adapted from: 
 ### https://github.com/Syllo/nvtop/blob/master/Dockerfile
 ###
+### this is a comment to try to trigger the CI
 
 # BUILD: docker build . -t nvtop
 # or use other image with: --build-arg IMAGE=nvcr.io/nvidia/cudagl:11.4.2-base-ubuntu20.04
