@@ -33,9 +33,8 @@ WORKDIR /
 ENV PATH=$OMPI_DIR/bin:$PATH
 ENV LD_LIBRARY_PATH=$OMPI_DIR/lib:$LD_LIBRARY_PATH
 RUN ldconfig
-RUN wget https://bitbucket.org/blaze-lib/blaze/downloads/blaze-3.8.tar.gz
-RUN tar -xf blaze-3.8.tar.gz
-RUN cp -r blaze-3.8/blaze /usr/local/include
+RUN git clone https://bitbucket.org/blaze-lib/blaze.git --branch v3.8
+RUN cp -r /blaze /usr/local/include
 RUN git clone --depth 1 --branch 7.0.3 https://github.com/projectchrono/chrono.git
 WORKDIR chrono
 RUN git submodule init
