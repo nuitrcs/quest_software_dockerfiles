@@ -1,0 +1,33 @@
+### Adapted from: https://github.com/vdemichev/DiaNN/issues/1623
+FROM debian:12
+USER root
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update -y
+RUN apt-get install -y \
+        locales && \
+    rm -r /var/lib/apt/lists/*
+
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    sed -i -e 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales
+
+RUN apt update && apt install -y libgomp1 build-essential wget unzip git vim
+
+RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+    dpkg -i packages-microsoft-prod.deb && \
+    rm packages-microsoft-prod.deb
+
+RUN apt-get update && apt-get install -y dotnet-sdk-8.0 && rm -r /var/lib/apt/lists/*
+
+# Download DIA-NN version <version>
+RUN wget https://github.com/vdemichev/DiaNN/releases/download/2.0/DIA-NN-2.2.0-Academia-Linux.zip -O diann-2.2.0.Linux.zip
+#RUN wget https://github.com/vdemichev/DiaNN/releases/download/<version>/diann-<version>.Linux.zip -O diann-<version>.Linux.zip
+
+# Unzip the DIA-NN package
+RUN unzip diann-2.2.0.Linux.zip
+
+# Set appropriate permissions for the DIA-NN folder
+RUN chmod -R 775 /diann-2.2.0
+
+
